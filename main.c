@@ -8,14 +8,9 @@
 #define F_CPU 16000000UL
 
 #include "thesauce.h"
-#include "colorread.h"
-#include "colorsorter.h"
 #include "buttons.h"
-#include "rgbfunction.h"
 #include "oled.h"
 #include "display_i2c.h"
-#include "fotoresistor.h"
-#include "lightread.h"
 #include "rgb_reader_i2c.h"
 #include "color_name.h"
 
@@ -193,3 +188,4 @@ ISR (TIMER1_COMPA_vect){
 
  
  
+
