@@ -44,7 +44,7 @@ int main(void){
     sei();
     thesauce();
     
-  /*  uint8_t colorvalue[4] = {0x00,0x00,0x00,0x00};*/ // ska döpas om för att göra en inscanning av temp eller nått annat för ADC omvandling 
+  /*  uint8_t colorvalue[4] = {0x00,0x00,0x00,0x00};*/ // ska dÃ¶pas om fÃ¶r att gÃ¶ra en inscanning av temp eller nÃ¥tt annat fÃ¶r ADC omvandling 
     uint16_t rgbcvalue[4] = {0x00,0x00,0x00,0x00}; /* CRGB values are stored here as a uint16 value.*/
     uint8_t boot = 0;
     uint16_t high_low = 0;
@@ -103,16 +103,7 @@ int main(void){
         oleddisplay(display_timer,display_press,display_start,0);
         trueflag = false;
         }        
-    /* function*/
-   else if (rotorpos == 4 && trueflag == true){
-        oleddisplay(display_colordelay,display_clear,display_clear,0);
-        trueflag = false;
-    }
-    /*Light reader*/
-   else if (rotorpos == 5 && trueflag == true){
-        oleddisplay(display_light,display_light2,display_clear,0);
-        trueflag = false;
-    }
+
     
  /************************************************************************/   
     /* Colorscanning modul*/
@@ -155,26 +146,6 @@ int main(void){
         
     }
 /************************************************************************/
-    
-    /*light modul */
-    else if (rotorpos == 4 && !buttons(0) && trueflag == false ){
-        StartRGB(rgbcvalue);
-        uint16_t counter = rgbcvalue[0];
-        char buffert_counter[6];
-        sprintf(buffert_counter, "%u",counter);
-        oleddisplay(buffert_counter,display_light_value,display_clear,0);
-               
-    }
-/************************************************************************/    
-    /* Temp modul*/
-    else if (rotorpos == 5 && !buttons(0) && trueflag == false){
-        uint16_t light_read = light();
-        char buffert[4];
-        sprintf(buffert, "%u",light_read);
-        oleddisplay(buffert,display_clear,display_clear,0);
-     
-    }     
-/************************************************************************/
   }
 }
 
@@ -197,6 +168,7 @@ int main(void){
      
      else if (!(PIND & (1<<2)))
      {
+
          if(!(PIND & (1<<3))){
              if (rotorpos > 0){
                 rotorpos--;
